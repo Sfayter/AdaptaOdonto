@@ -58,7 +58,6 @@ export default function LandingPage() {
                 <h1>Agilidade em sua Consulta</h1>
                 <p>Atendimento Prime com alta tecnologia para cuidar da saúde dos seus dentes com qualidade</p>
                 <p>Nossos especialistas em odontologia estão comprometidos em proporcionar a você a melhor experiência de cuidado bucal, com serviços personalizados e avançada tecnologia.</p>
-
             </section>
             <section className='tratamentos'>
                 <div>
