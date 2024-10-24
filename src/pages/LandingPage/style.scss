@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.landing-page {
+    background-color: #F6EFE8;
+
+    .topo {
+        background-image: url('../../../public/assets/images/consultorio.png');
+
+        >div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            background-color: #0009;
+
+            >div {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+
+                h1 {
+                    font: 300 36px 'roboto', sans-serif;
+                    text-align: center;
+                    width: 80%;
+                    color: white;
+                }
+
+                p {
+                    font: 100 20px 'roboto', sans-serif;
+                    color: white;
+                }
+
+                .btn-agendamento {
+                    background-color: #045863;
+                    font: 200 24px 'roboto', sans-serif;
+                    height: 40px;
+                    width: 256px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 20px;
+                    border: none;
+                    cursor: pointer;
+                    color: white;
+
+                    >img {
+                        height: 100%;
+                    }
+                }
+            }
+
+            >img {
+                width: 50%;
+            }
+        }
+    }
+
+
+    .servicos {
+        border-radius: 30px;
+        width: 95%;
+        height: 750px;
+        margin: 50px auto;
+        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.08);
+        margin-bottom: 8vh;
+        box-sizing: border-box;
+    }
+
+
+
+
+    .textos-servicos {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 125vh;
+        font-size: 20px;
+        font-family: 'Didact Gothic';
+    }
+
+    .textos-servicos,
+    h1 {
+        padding-top: 3vh;
+    }
+
+    .textos-servicos,
+    p {
+        padding-top: 7vh;
+    }
+
+    .textos-servicos,
+    h4 {
+        font-family: 'Didact Gothic';
+    }
+
+    .pai-servico {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 80px;
+        gap: 150px;
+    }
+
+    .servico {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .servico img {
+        width: 30%;
+    }
+
+    .image-dente {
+        width: 250px;
+        margin: 25px;
+        float: right;
+    }
+
+    .checkup {
+        background-color: #B57F44;
+        border-radius: 50px;
+        width: 1360px;
+        height: 800px;
+        margin: auto;
+        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.08);
+        margin-bottom: 8vh;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .textocheckup {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: space-around;
+        margin: 10rem;
+        font:24px 'Inter', sans-serif;
+        color: #F6EFE8;
+        font-weight: 200;
+    }
+
+    .fundocheckup{
+        border-radius: 0px 50px 50px 0px ;
+        width: 596px;
+    }
+
+    .textocheckup p{
+        font-size: 22px;
+        margin: -.5rem;
+    }
+
+    .checkup button {
+        background-color: #045863af;
+        border: transparent;
+        font: 200 24px 'roboto', sans-serif;
+        display: flex;
+        border-radius: 50px;
+        height: 50px;
+        width: 256px;
+        color: #F6EFE8;
+        align-items: center;
+        justify-content: center;
+        margin-top: 4rem;
+    }
+
+    .checkup button>img {
+        height: 40px;
+        width: 37px;
+    }
+
+    .rodape {
+        background-color: #434E49;
+        color: #F6EFE8;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 50px;
+        font-family:"Didact Gothic", sans-serif;
+        
+    }
+    
+
+    .rodape img{
+        border-radius: 50px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .rede{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .Tratamentos{
+        margin: 10rem;
+    }
+
+}
