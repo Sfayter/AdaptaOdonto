@@ -1,8 +1,8 @@
 import './style.scss'
 
-export default function PageAdmin() {
+export default function Login() {
     return (
-        <div className='admin-page'>
+        <div className='login-page'>
             <section className='login'>
                 <form className='labels'>
                 <img className='logo-odonto' alt="" src="/assets/images/AdaptaOdonto_logo.png"/>
