@@ -2,24 +2,18 @@ import axios from "axios";
 import { useState } from "react";
 import './index.scss';
 
-export default function Turma() {
+export default function Agendamento() {
 
     async function salvar() {
     }
 
     return (
-        <div className='pagina-turma'>
-            <div className="header">
-                <img alt="logo header" src="src\pages\App\Vector.png" />
-                <div className="link">
-                    <a href="#">Agendamento</a>
-                    <a href="%">Pacientes</a>
-                </div>
-            </div>
+        <div className='page-agendamento'>
+
             <div className='form'>
                 <div className="logo">
                     <h3>Novo Agendamento</h3>
-                    <img className="limg" alt="logo" src="src\pages\App\Vector.png" />
+                    <img className="limg" alt="logo" src="/assets/images/logo.svg" />
                     </div>
                 <div>
                     <input type="text" placeholder="RG do Paciente" />
@@ -31,9 +25,17 @@ export default function Turma() {
                     <input type="text" placeholder="Hora da Colsulta" />
                 </div>
                 <div>
-                    <section className="confirmado">
-                        <h1> Confirmado</h1><input type="checkbox" placeholder="Confirmado" />
-                    </section>
+                    <select>
+                        <option value={'Confirmado'}>
+                            Confirmado
+                        </option>
+                        <option value={'Cancelado'}>
+                            Cancelado
+                        </option>
+                        <option value={'Concluído'}>
+                            Concluído
+                        </option>
+                    </select>
                 </div>
                 <div>
                     <textarea placeholder="Tratamento" />

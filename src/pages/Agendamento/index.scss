@@ -3,33 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
-.pagina-turma {
+.page-agendamento {
     font-size: 20px;
-    padding: 40px;
-    background-color: #f9f9f9;
     font: normal 18px 'roboto', sans-serif;
-
-
-    >.header{
-        background-color: white;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
-        .link{
-            display: flex;
-            flex-direction: row;
-            gap: 5rem;
-        } 
-        a{
-            text-decoration: none;
-            color: #1a1a1a;
-
-
-        }
-    }
-
-
     h1 {
         margin: 10px 0;
         text-align: center;
@@ -61,12 +37,12 @@
         flex-direction: column;
         gap: 30px;
         width: 65%;
-        background-color: #3f3f40;
+        background-color: #4b4b4b;
         border-radius: 5px;
         padding: 30px 30px 30px 70px;
         font: normal 18px 'roboto', sans-serif;
         margin-left:18%;
-        margin-top: 5%;
+        margin-top: 2%;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.45);
 
         .logo{
@@ -80,12 +56,13 @@
             .limg{
                 left: 140%;
                 position: relative;
+                width: 80px;
             }
         }
 
      
 
-        >div {
+        > div {
             display: flex;
             align-items: center;
             font: normal 18px 'roboto', sans-serif;
@@ -116,36 +93,26 @@
                 resize: none;
             }
 
-            .confirmado {
+           
 
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                padding: 1px 5px;
-                display: flex;
-                gap: 7px;
-                background-color: #ffffff;
-
-
-                h1 {
-                    color: #757575;
-                    font-size: 16px;
-                    font: normal 18px 'roboto', sans-serif;
-                }
-
-                input[type=checkbox] {
+            select .a {
                     /* Double-sized Checkboxes */
-                    -ms-transform: scale(1.3);
+                -ms-transform: scale(1.3);
                     /* IE */
-                    -moz-transform: scale(1.3);
+                -moz-transform: scale(1.3);
                     /* FF */
-                    -webkit-transform: scale(1.3);
+                -webkit-transform: scale(1.3);
                     /* Safari and Chrome */
-                    -o-transform: scale(1.3);
+                -o-transform: scale(1.3);
                     /* Opera */
-                    transform: scale(1.3);
-                    padding: 10px;
+                transform: scale(1.3);
+                padding: 8px;
 
-                }
+            }
+            select{
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 4px;
             }
 
         }
