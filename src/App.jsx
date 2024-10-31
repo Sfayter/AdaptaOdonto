@@ -1,6 +1,6 @@
 
 import './App.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import Agendamento from './pages/Agendamento'
@@ -16,6 +16,10 @@ function App() {
             <Route path='/admin/login' Component={Login}/>
             <Route path='/admin/agendamento' Component={ListaAgendamentos}/>
             <Route path='/admin/agendamento/novo' Component={Agendamento}/>
+            <Route
+              path="/admin"
+              element={<Navigate to="/admin/login" replace={true} />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

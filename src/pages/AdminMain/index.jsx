@@ -5,7 +5,7 @@ export default function AdminMain(){
     return(
         <div className="admin-main">
             <Header/>
-            <Outlet/>
+            <Outlet />
         </div>
     )
 }
