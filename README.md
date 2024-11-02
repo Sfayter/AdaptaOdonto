@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+## ENV
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+REACT_APP_API_URL=http://localhost:5040
 
 ## Available Scripts
 
