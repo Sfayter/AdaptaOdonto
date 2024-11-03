@@ -29,20 +29,21 @@
                 gap: 32px;
 
                 h1 {
-                    font: 300 36px 'roboto', sans-serif;
+                    font: 400 45px 'roboto', sans-serif;
                     text-align: center;
-                    width: 80%;
+                    width: 100%;
                     color: white;
                 }
 
                 p {
-                    font: 100 20px 'roboto', sans-serif;
+                    font: 350 25px 'roboto', sans-serif;
+                    text-align: center;
                     color: white;
                 }
 
                 .btn-agendamento {
                     background-color: #045863;
-                    font: 200 24px 'roboto', sans-serif;
+                    font: 220 24px 'roboto', sans-serif;
                     height: 40px;
                     width: 256px;
                     display: flex;
@@ -71,7 +72,7 @@
         width: 95%;
         height: 750px;
         margin: 50px auto;
-        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.08);
+        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.200);
         margin-bottom: 12vh;
     }
 
@@ -96,6 +97,7 @@
     .textos-servicos,
     p {
         padding-top: 7vh;
+        text-align: center;
     }
 
     .textos-servicos,
@@ -134,16 +136,16 @@
         width: 95%;
         height: 750px;
         margin: 50px auto;
-        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.08);
+        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.200);
         margin-bottom: 12vh;
         background-color: #fff;
         > div {
-            padding: 0 10%;
+            padding: 0 5%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 40px;
+            gap: 30px;
             font-family: 'roboto', sans-serif;
             color: #1D211F;
             width: 50%;
@@ -187,7 +189,7 @@
         width: 95%;
         height: 600px;
         margin: 50px auto;
-        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.08);
+        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.200);
         margin-bottom: 12vh;
         padding: 100px 30%;
         font-family: 'roboto', sans-serif;
@@ -215,6 +217,7 @@
                 padding: 16px;
                 background-color: var(--landing-page-cyan);
                 border-radius: 32px;
+                box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.180);
             }
             p{
                 margin-top: -30px;
@@ -231,7 +234,7 @@
         width: 95%;
         height: 800px;
         margin: 0 auto;
-        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.08);
+        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.200);
         margin-bottom: 8vh;
         box-sizing: border-box;
         display: flex;
@@ -298,10 +301,10 @@
             font-family: 'roboto', sans-serif;
 
             > h1{
-                font-size: 20px;
+                font-size: 22px;
             }
             > h2{
-                font-size: 14px;
+                font-size: 17px;
             }
         }
     }
