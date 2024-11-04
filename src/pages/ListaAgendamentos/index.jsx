@@ -1,5 +1,7 @@
 import './style.scss';
 import React, { useState, useEffect } from 'react';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 
 export default function ListaAgendamentos() {
@@ -13,14 +15,16 @@ export default function ListaAgendamentos() {
   }, []);
 
   return (
-    <div className="admin-main">
+    <div className="agendamento-main">
       <h2>Agendamentos</h2>
       <div className="search-bar">
         <input type="text" placeholder="Nome ou RG do paciente" />
         <button>Buscar</button>
         <input type="text" placeholder="Data" />
         <button>Buscar</button>
-        <button className="new-appointment-btn">+ Novo</button>
+        <Popup trigger={<button> + Novo</button>} position="right center">
+    <div>Popup content here !!</div>
+  </Popup>
       </div>
 
       <div className="appointments-container">

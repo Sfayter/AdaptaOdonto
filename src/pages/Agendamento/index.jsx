@@ -13,7 +13,8 @@ export default function Agendamento() {
             <div className='form'>
                 <div className="logo">
                     <h3>Novo Agendamento</h3>
-                    <img className="limg" alt="logo" src="/assets/images/logo.svg" />
+                    {/* <img className="limg" alt="logo" src="/assets/images/logo.svg" /> */}
+                    <br/>
                     </div>
                 <div>
                     <input type="text" placeholder="RG do Paciente" />
