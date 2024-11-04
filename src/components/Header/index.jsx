@@ -1,7 +1,7 @@
 import './style.scss'
 import { Link } from "react-router-dom"
 export default function Header(){
-    return(
+/*     return(
         <div className="header">
             <img className="logo" alt="logo header" src="/assets/images/logo.svg" />
             <div className="link">
@@ -9,5 +9,5 @@ export default function Header(){
                 <Link to="/admin/paciente">Pacientes</Link>
             </div>
         </div>
-    )
+    ) */
 }

@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import Agendamento from './pages/Agendamento'
-import AdminMain from './pages/ListaAgendamentos';
+import AdminMain from './pages/AdminMain';
 import ListaAgendamentos from './pages/ListaAgendamentos';
 import AdminPaciente from './pages/AdminPaciente';
 
