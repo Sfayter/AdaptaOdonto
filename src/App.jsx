@@ -9,7 +9,7 @@ import ListaAgendamentos from './pages/ListaAgendamentos';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter >
+      <BrowserRouter>
         <Routes>
           <Route path='' Component={LandingPage}/>
           <Route path='/admin' Component={AdminMain}>

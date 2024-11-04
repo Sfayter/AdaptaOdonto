@@ -8,7 +8,7 @@ export default function LandingPage() {
                     <div>
                         <h1>Referência em ortodontia na cidade de São Paulo</h1>
                         <p>Transforme seu sorriso com a tecnologia premium da Adapta Odonto</p>
-                        <button className='btn-agendamento'><img src="/assets/images/zap.png" /><span>Agendamento</span></button>
+                        <button className='btn-agendamento'><img src="/assets/images/zap.png" /><a href='https://wa.me/5511990009009'>Agendamento</a></button>
                     </div>
                     <img alt="logo de login" src="/assets/images/logo_fundo_cinza.png" />
                 </div>
