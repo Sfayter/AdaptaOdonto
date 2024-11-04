@@ -1,7 +1,6 @@
 import './style.scss';
 import React, { useState, useEffect } from 'react';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
+
 
 
 export default function ListaAgendamentos() {
@@ -22,9 +21,8 @@ export default function ListaAgendamentos() {
         <button>Buscar</button>
         <input type="text" placeholder="Data" />
         <button>Buscar</button>
-        <Popup trigger={<button> + Novo</button>} position="right center">
-    <div>Popup content here !!</div>
-  </Popup>
+        
+    
       </div>
 
       <div className="appointments-container">
