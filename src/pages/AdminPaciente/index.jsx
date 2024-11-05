@@ -16,7 +16,7 @@ export default function AdminPaciente() {
       <h2>Pacientes</h2>
       <div className="search-bar">
         <input type="text" placeholder="Pesquisar paciente" />
-        <button className="search-btn">🔍</button>
+        <button className="search-btn"><img alt='buscar2' src='/assets/images/lupa 1.svg' className='lupa'></img></button>
         <button className="new-patient-btn">+ Novo</button>
       </div>
 
