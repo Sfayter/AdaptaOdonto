@@ -101,9 +101,9 @@ export default function ListaAgendamentos() {
       <div className='lista-agendamento'>
         <h2>Agendamentos</h2>
         <div className="search-bar">
-          <input type="text" placeholder="Nome ou RG do paciente" value={buscaRgOuNome} onChange={e => setBuscaRgOuNome(e.target.value)}/>
+          <input type="text" placeholder="Busca por Nome ou RG do paciente" value={buscaRgOuNome} onChange={e => setBuscaRgOuNome(e.target.value)}/>
 
-          <input type="date" placeholder="Data" value={buscaData} onChange={e => setData(e.target.value)}/>
+          <input type="date" value={buscaData} onChange={e => setData(e.target.value)}/>
 
           <button className='button-novo' onClick={handleNewClick}>+ Novo</button>
         </div>
@@ -136,8 +136,7 @@ export default function ListaAgendamentos() {
                   </div>
                   <div className="card-right">
                     <button className="edit-btn" onClick={() => handleEditClick(agendamento)}>Editar</button>
-                    <button className="view-btn">Ver Paciente</button>
-                    <button className="delete-btn">Apagar</button>
+                    <button className="delete-btn" onClick={() => apagarAgendamento(agendamento.id)}>Apagar</button>
                   </div>
                 </div>
               
