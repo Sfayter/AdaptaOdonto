@@ -24,15 +24,15 @@ export default function ListaAgendamentos() {
     }
     else{ // Se tem pesquisa por rg/nome mas não por data
       if(/\d/.test(buscaRgOuNome))
-        setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].rg.includes(buscaRgOuNome)))
+        setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].rg.toLowerCase().includes(buscaRgOuNome.toLowerCase())))
       else
-      setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].nome.includes(buscaRgOuNome)))
+      setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].nome.toLowerCase().includes(buscaRgOuNome.toLowerCase())))
     }
     if(buscaRgOuNome != '' && buscaData != ''){ // Se tem as duas pesquisas
       if(/\d/.test(buscaRgOuNome))
-        setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].rg.includes(buscaRgOuNome) && a.data.split('T')[0] == buscaData))
+        setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].rg.toLowerCase().includes(buscaRgOuNome.toLowerCase()) && a.data.split('T')[0] == buscaData))
       else
-      setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].nome.includes(buscaRgOuNome) && a.data.split('T')[0] == buscaData))
+      setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].nome.toLowerCase().includes(buscaRgOuNome.toLowerCase()) && a.data.split('T')[0] == buscaData))
     }
 
     if(buscaData == '' && buscaRgOuNome == '') //Sem filtro
