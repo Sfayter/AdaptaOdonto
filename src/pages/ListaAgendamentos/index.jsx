@@ -121,7 +121,8 @@ export default function ListaAgendamentos() {
                 <h1 className='titulo-campo'>ㅤㅤHora :ㅤ </h1><input type="text" placeholder="Hora da Consulta" defaultValue={agendamentoEdit?.horario || ''} />
               </div>
               <div>
-                <h1 className='titulo-campo'>ㅤㅤ  Status : </h1><select defaultValue={agendamentoEdit?.status || 'Confirmado'}>
+                <h1 className='titulo-campo'>ㅤㅤ  Status : </h1>
+                <select defaultValue={agendamentoEdit?.status || 'Confirmado'}>
                   <option value="Agendado">Agendado</option>
                   <option value="Confirmado">Confirmado</option>
                   <option value="Cancelado">Cancelado</option>
