@@ -1,13 +1,19 @@
+import Erro from '../../components/Erro';
 import './style.scss';
 import React, { useState, useEffect } from 'react';
-
+import axios from 'axios';
 export default function ListaAgendamentos() {
+  const [paciente, setPacientes] = useState([]);
+  const [agendamentosAll, setAgendamentosAll] = useState([]);
   const [agendamentos, setAgendamentos] = useState([]);
   const [openPopup, setOpenPopup] = useState(false);
   const [isNewAgendamento, setIsNewAgendamento] = useState(true);
   const [agendamentoEdit, setAgendamentoEdit] = useState(null);
+  const [erro, setErro] = useState('')
 
+  const token = localStorage.getItem('token')
   const url = process.env.REACT_APP_API_URL+"/agendamento"
+  const urlP = process.env.REACT_APP_API_URL+"/paciente"
 
   async function salvar() {
     setOpenPopup(false);
@@ -19,12 +25,24 @@ export default function ListaAgendamentos() {
   }
 
   useEffect(() => {
-    setAgendamentos([
-      { id: 1, paciente: 'João Silva', data: '2024-11-03', status: 'Confirmado', rg: '123456789', tratamento: 'Limpeza', horario: '10:00' },
-      { id: 2, paciente: 'Maria Oliveira', data: '2024-11-04', status: 'Pendente', rg: '987654321', tratamento: 'Obturação', horario: '11:30' }
-    ]);
+    buscarAgendamentos()
+    buscarPacientes()
   }, []);
-
+  async function buscarAgendamentos(){
+    axios.get(url+"?x-access-token="+token)
+      .then(res => {
+        setAgendamentosAll(res.data)
+        setAgendamentos(res.data)
+      })
+      .catch(err => setErro(err.response.data.erro))
+  }
+  async function buscarPacientes(){
+    axios.get(urlP+"?x-access-token="+token)
+    .then(res => {
+      setPacientes(res.data)
+    })
+    .catch(err => setErro(err.response.data.erro))
+  }
   const handleEditClick = (agendamento) => {
     setAgendamentoEdit(agendamento);
     setIsNewAgendamento(false);
@@ -45,7 +63,6 @@ export default function ListaAgendamentos() {
         <button><img alt='buscar' src='/assets/images/lupa 1.svg' className='lupa'></img></button>
         <input type="text" placeholder="Data" />
         <button><img alt='buscar2' src='/assets/images/lupa 1.svg' className='lupa'></img></button>
-
         <button className='button-novo' onClick={handleNewClick}>+ Novo</button>
       </div>
 
@@ -55,10 +72,10 @@ export default function ListaAgendamentos() {
             <div key={agendamento.id} className="card">
               <div className="card-left">
                 <div>
-                  <strong> Paciente: </strong> {agendamento.paciente}
+                  <strong> Paciente: </strong> {paciente.filter(p => p.id == agendamento.paciente)[0].nome}
                 </div>
                 <div>
-                  <strong> Data da Consulta: </strong> {agendamento.data}
+                  <strong> Data da Consulta: </strong> {new Date(agendamento.data).toLocaleDateString()}
                 </div>
                 <div>
                   <strong> Status: </strong> {agendamento.status}
@@ -66,10 +83,10 @@ export default function ListaAgendamentos() {
               </div>
               <div className="card-center">
                 <div>
-                  <strong>RG:</strong> {agendamento.rg}
+                  <strong>RG:</strong> {paciente.filter(p => p.id == agendamento.paciente)[0].rg}
                 </div>
                 <div>
-                  <strong>Horário:</strong> {agendamento.horario}
+                  <strong>Horário:</strong> {agendamento.hora}
                 </div>
                 <div>
                   <strong>Tratamento:</strong> {agendamento.tratamento}
@@ -123,6 +140,10 @@ export default function ListaAgendamentos() {
           </div>
         )}
       </div>
+      {erro.length > 0?
+                <Erro close={() => setErro('')} mensagem={erro}/>
+                :''
+      }
     </div>
   );
 }
