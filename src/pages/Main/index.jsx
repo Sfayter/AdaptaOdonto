@@ -6,7 +6,10 @@ import { useState } from 'react'
 const Sidebar = () => {
     return (
       <div className="sidebar">
-        <h2>Adapta Odonto</h2>
+        <div>
+          <img src='/assets/images/logo.svg'></img>
+          <h2>Adapta Odonto</h2>
+        </div>        
         <ul>
           <li>Dashboard</li>
         </ul>
