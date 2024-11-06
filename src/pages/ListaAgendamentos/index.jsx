@@ -117,7 +117,7 @@ export default function ListaAgendamentos() {
                       <strong> Paciente: </strong> {paciente.filter(p => p.id == agendamento.paciente)[0]?.nome}
                     </div>
                     <div>
-                      <strong> Data da Consulta: </strong> {new Date(agendamento.data).toLocaleDateString()}
+                      <strong> Data da Consulta: </strong> {agendamento.data.split('-')[2]?.split('T')[0]}/{agendamento.data.split('-')[1]}/{agendamento.data.split('-')[0]}
                     </div>
                     <div>
                       <strong> Status: </strong> {agendamento.status}
