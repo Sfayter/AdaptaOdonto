@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function AdminPaciente() {
   const [pacientes, setPacientes] = useState([]);
+    const url = process.env.REACT_APP_API_URL+"/paciente"
 
   useEffect(() => {
     setPacientes([

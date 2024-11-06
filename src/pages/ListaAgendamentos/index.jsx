@@ -7,6 +7,8 @@ export default function ListaAgendamentos() {
   const [isNewAgendamento, setIsNewAgendamento] = useState(true);
   const [agendamentoEdit, setAgendamentoEdit] = useState(null);
 
+  const url = process.env.REACT_APP_API_URL+"/agendamento"
+
   async function salvar() {
     setOpenPopup(false);
     if (isNewAgendamento) {

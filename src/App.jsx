@@ -19,10 +19,7 @@ function App() {
           <Route path='/admin/agendamento' Component={ListaAgendamentos}/>
           <Route path='/admin/paciente' Component={AdminPaciente}/>
           <Route path='/admin/main' Component={Main}></Route>
-        <Route
-              path="/admin"
-              element={<Navigate to="/admin/login" replace={true} />}
-            />
+          <Route path="/admin" element={<Navigate to="/admin/login" replace={true} />}/>
           </Route>
         </Routes>
       </BrowserRouter>
