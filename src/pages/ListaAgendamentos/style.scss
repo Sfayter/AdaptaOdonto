@@ -1,29 +1,33 @@
 .agendamento-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 80vh;
+  position: relative;
   padding: 20px;
-  background-color: #343a40;
+  width: 100%;
+  margin: 0;
   font-family: 'Roboto', sans-serif;
+  background-color: #343a40;
 
-  h2 {
-    color: white;
-    margin-bottom: 20px;
-    font-size: large;
+  .lista-agendamento{
+    width: 80%;
+    height: 100%;
+    margin: 80px auto;
   }
+  h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 2vh;
+  }
+
 
   .search-bar {
     display: flex;
-    gap: 30px;
+    justify-content: space-between;
     margin-bottom: 15px;
 
     input {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      width: 200px;
+      width: 30%;
 
     }
 
@@ -71,7 +75,6 @@
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 800px;
     font-size: medium;
 
     .cards-container {

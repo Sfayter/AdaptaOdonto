@@ -10,11 +10,35 @@ export default function ListaAgendamentos() {
   const [openPopup, setOpenPopup] = useState(false);
   const [isNewAgendamento, setIsNewAgendamento] = useState(true);
   const [agendamentoEdit, setAgendamentoEdit] = useState(null);
+  const [buscaRgOuNome, setBuscaRgOuNome] = useState('')
+  const [buscaData, setData] = useState('')
   const [erro, setErro] = useState('')
 
   const token = localStorage.getItem('token')
   const url = process.env.REACT_APP_API_URL+"/agendamento"
   const urlP = process.env.REACT_APP_API_URL+"/paciente"
+
+  function filtro(){
+    if(buscaData != '' && buscaRgOuNome == ''){//Se tem pesquisa por data e não por nome ou rg
+      setAgendamentos(agendamentosAll.filter(a => a.data.split('T')[0] == buscaData))
+    }
+    else{ // Se tem pesquisa por rg/nome mas não por data
+      if(/\d/.test(buscaRgOuNome))
+        setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].rg.includes(buscaRgOuNome)))
+      else
+      setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].nome.includes(buscaRgOuNome)))
+    }
+    if(buscaRgOuNome != '' && buscaData != ''){ // Se tem as duas pesquisas
+      if(/\d/.test(buscaRgOuNome))
+        setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].rg.includes(buscaRgOuNome) && a.data.split('T')[0] == buscaData))
+      else
+      setAgendamentos(agendamentosAll.filter(a => paciente.filter(p => p.id == a.paciente)[0].nome.includes(buscaRgOuNome) && a.data.split('T')[0] == buscaData))
+    }
+
+    if(buscaData == '' && buscaRgOuNome == '') //Sem filtro
+      setAgendamentos(agendamentosAll)
+    
+  }
 
   async function salvar() {
     setOpenPopup(false);
@@ -29,6 +53,11 @@ export default function ListaAgendamentos() {
     buscarAgendamentos()
     buscarPacientes()
   }, []);
+
+  useEffect(() => {
+
+    filtro()
+  }, [buscaData, buscaRgOuNome]);
   async function buscarAgendamentos(){
     axios.get(url+"?x-access-token="+token)
       .then(res => {
@@ -56,53 +85,65 @@ export default function ListaAgendamentos() {
     setOpenPopup(true);
   };
 
+
+  async function apagarAgendamento(id){
+    axios.delete(url+"/"+id+"?x-access-token="+token)
+      .then(res => {
+        setAgendamentosAll(agendamentosAll.filter(a => a.id !== id))
+        setAgendamentos(agendamentos.filter(a => a.id !== id))
+      })
+      .catch(err => setErro(err.response.data.erro))
+  }
+
   return (
     <div className="agendamento-main">
       <NavLink to="/admin/main" className="btn-dashboard"><img className='img-retorno' src="/assets/images/seta-circulo-esquerda.png"/>Dashboard</NavLink>
-      <h2>Agendamentos</h2>
-      <div className="search-bar">
-        <input type="text" placeholder="Nome ou RG do paciente" />
-        <button><img alt='buscar' src='/assets/images/lupa 1.svg' className='lupa'></img></button>
-        <input type="text" placeholder="Data" />
-        <button><img alt='buscar2' src='/assets/images/lupa 1.svg' className='lupa'></img></button>
-        <button className='button-novo' onClick={handleNewClick}>+ Novo</button>
-      </div>
+      <div className='lista-agendamento'>
+        <h2>Agendamentos</h2>
+        <div className="search-bar">
+          <input type="text" placeholder="Nome ou RG do paciente" value={buscaRgOuNome} onChange={e => setBuscaRgOuNome(e.target.value)}/>
 
-      <div className="appointments-container">
-        <div className="cards-container">
-          {agendamentos.map((agendamento) => (
-            <div key={agendamento.id} className="card">
-              <div className="card-left">
-                <div>
-                  <strong> Paciente: </strong> {paciente.filter(p => p.id == agendamento.paciente)[0]?.nome}
-                </div>
-                <div>
-                  <strong> Data da Consulta: </strong> {new Date(agendamento.data).toLocaleDateString()}
-                </div>
-                <div>
-                  <strong> Status: </strong> {agendamento.status}
-                </div>
-              </div>
-              <div className="card-center">
-                <div>
-                  <strong>RG:</strong> {paciente.filter(p => p.id == agendamento.paciente)[0]?.rg}
-                </div>
-                <div>
-                  <strong>Horário:</strong> {agendamento.hora}
-                </div>
-                <div>
-                  <strong>Tratamento:</strong> {agendamento.tratamento}
-                </div>
-              </div>
-              <div className="card-right">
-                <button className="edit-btn" onClick={() => handleEditClick(agendamento)}>Editar</button>
-                <button className="view-btn">Ver Paciente</button>
-                <button className="delete-btn">Apagar</button>
-              </div>
-            </div>
-          ))}
+          <input type="date" placeholder="Data" value={buscaData} onChange={e => setData(e.target.value)}/>
+
+          <button className='button-novo' onClick={handleNewClick}>+ Novo</button>
         </div>
 
+        <div className="appointments-container">
+          <div className="cards-container">
+            {agendamentos.map((agendamento) => 
+                <div key={agendamento.id} className="card">
+                  <div className="card-left">
+                    <div>
+                      <strong> Paciente: </strong> {paciente.filter(p => p.id == agendamento.paciente)[0]?.nome}
+                    </div>
+                    <div>
+                      <strong> Data da Consulta: </strong> {new Date(agendamento.data).toLocaleDateString()}
+                    </div>
+                    <div>
+                      <strong> Status: </strong> {agendamento.status}
+                    </div>
+                  </div>
+                  <div className="card-center">
+                    <div>
+                      <strong>RG:</strong> {paciente.filter(p => p.id == agendamento.paciente)[0]?.rg}
+                    </div>
+                    <div>
+                      <strong>Horário:</strong> {agendamento.hora}
+                    </div>
+                    <div>
+                      <strong>Tratamento:</strong> {agendamento.tratamento}
+                    </div>
+                  </div>
+                  <div className="card-right">
+                    <button className="edit-btn" onClick={() => handleEditClick(agendamento)}>Editar</button>
+                    <button className="view-btn">Ver Paciente</button>
+                    <button className="delete-btn">Apagar</button>
+                  </div>
+                </div>
+              
+            )}
+          </div>
+        </div>
         {/*-----------------------------------------POPUP---------------------------------------------------------------*/}
 
         {openPopup && (

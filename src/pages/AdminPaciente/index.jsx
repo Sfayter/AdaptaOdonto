@@ -33,7 +33,8 @@ export default function AdminPaciente() {
   async function excluirPaciente(id){
     axios.delete(url+"/"+id+"?x-access-token="+token)
     .then(res => {
-      buscarPacientes()
+      setPacientesAll(pacientesAll.filter(p => p.id !== id))
+      setPacientes(pacientes.filter(p => p.id !== id))
     })
     .catch(err => setErro(err.response.data.erro))
   }
