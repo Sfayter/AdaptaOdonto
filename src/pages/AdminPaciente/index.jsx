@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Erro from '../../components/Erro';
 import FormPaciente from '../../components/FormPaciente';
+import { NavLink } from 'react-router-dom';
 
 export default function AdminPaciente() {
   const [pacientesAll, setPacientesAll] = useState([]);
@@ -38,6 +39,7 @@ export default function AdminPaciente() {
   }
   return (
     <div className="admin-paciente">
+       <NavLink to="/admin/main" className="btn-dashboard"><img className='img-retorno' src="/assets/images/seta-circulo-esquerda.png"/>Dashboard</NavLink>
       <div className='lista-paciente'>
 
         <h2>Pacientes</h2>

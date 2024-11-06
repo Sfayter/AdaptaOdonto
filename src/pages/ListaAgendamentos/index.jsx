@@ -2,6 +2,7 @@ import Erro from '../../components/Erro';
 import './style.scss';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 export default function ListaAgendamentos() {
   const [paciente, setPacientes] = useState([]);
   const [agendamentosAll, setAgendamentosAll] = useState([]);
@@ -57,6 +58,7 @@ export default function ListaAgendamentos() {
 
   return (
     <div className="agendamento-main">
+      <NavLink to="/admin/main" className="btn-dashboard"><img className='img-retorno' src="/assets/images/seta-circulo-esquerda.png"/>Dashboard</NavLink>
       <h2>Agendamentos</h2>
       <div className="search-bar">
         <input type="text" placeholder="Nome ou RG do paciente" />
