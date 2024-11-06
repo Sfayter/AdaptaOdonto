@@ -72,7 +72,7 @@ export default function ListaAgendamentos() {
             <div key={agendamento.id} className="card">
               <div className="card-left">
                 <div>
-                  <strong> Paciente: </strong> {paciente.filter(p => p.id == agendamento.paciente)[0].nome}
+                  <strong> Paciente: </strong> {paciente.filter(p => p.id == agendamento.paciente)[0]?.nome}
                 </div>
                 <div>
                   <strong> Data da Consulta: </strong> {new Date(agendamento.data).toLocaleDateString()}
@@ -83,7 +83,7 @@ export default function ListaAgendamentos() {
               </div>
               <div className="card-center">
                 <div>
-                  <strong>RG:</strong> {paciente.filter(p => p.id == agendamento.paciente)[0].rg}
+                  <strong>RG:</strong> {paciente.filter(p => p.id == agendamento.paciente)[0]?.rg}
                 </div>
                 <div>
                   <strong>Horário:</strong> {agendamento.hora}

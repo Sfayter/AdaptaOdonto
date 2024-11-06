@@ -1,6 +1,6 @@
 import './style.scss'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Erro from '../../components/Erro'
 
@@ -13,7 +13,9 @@ const Sidebar = () => {
           <h2>Adapta Odonto</h2>
         </div>        
         <ul>
-          <li>Dashboard</li>
+          <li><NavLink to={"/admin/main"}>Dashboard</NavLink></li>
+          <li><NavLink to={"/admin/agendamento"}>Agendamentos</NavLink></li>
+          <li><NavLink to={"/admin/paciente"}>Pacientes</NavLink></li>
         </ul>
       </div>
     );
@@ -50,7 +52,7 @@ const Sidebar = () => {
           <div className="placeholder">
             {agendamentos.map(a => {
               return(
-                <div> Paciente: {a.paciente != null? pacientes.filter(p => p.id === a.paciente)[0].nome : 'Não Definido'}  
+                <div> Paciente: {a.paciente != null? pacientes.filter(p => p.id === a.paciente)[0]?.nome : 'Não Definido'}  
                 Data: {new Date(a.data).toLocaleDateString()} 
                 Hora: {a.hora} 
                 Status: {a.status} 
