@@ -26,10 +26,21 @@
     ul {
       list-style: none;
       padding: 0;
+      transition: background-color 0.8s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;  
+      border-radius: 1vh;
+
+      &:hover {
+        background-color: #00a2ff;
+        border-radius: 1vh;
+      }
   
       li {
         margin: 20px 0;
         cursor: pointer;
+        justify-content: center;
       }
     }
   }

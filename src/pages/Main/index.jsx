@@ -9,7 +9,6 @@ const Sidebar = () => {
         <h2>Adapta Odonto</h2>
         <ul>
           <li>Dashboard</li>
-          <li>User Profile</li>
         </ul>
       </div>
     );
