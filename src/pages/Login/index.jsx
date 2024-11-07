@@ -17,7 +17,7 @@ export default function Login() {
                 let token = res.data.token
                 localStorage.setItem('token', token)
                 localStorage.setItem('usuario', res.data.login)
-                navigate('/admin/agendamento')
+                navigate('/admin/main')
             })
             .catch((err) => {
                 let erro = err.response.data.erro
