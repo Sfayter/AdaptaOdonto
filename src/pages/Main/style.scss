@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/brittany-signature');
+
 * {
   font-family: 'Roboto', sans-serif;
 }
@@ -23,17 +24,19 @@
   text-align: center;
 
   img {
-    width: 12vw;
+    width: 6vw;
     margin: 10px auto;
   }
 
   h2 {
     width: 90%;
     display: flex;
+    justify-content: center;
     margin: 1vh;
-    font-family:'Brittany Signature', sans-serif;
+    font-family: 'Brittany Signature', sans-serif;
     font-weight: 100;
     font-size: 30px;
+    margin-bottom: 4vh;
   }
 
   ul {
@@ -48,17 +51,21 @@
 
     li {
       margin: 20px 0;
-      a{
+
+      a {
         font-size: 16px;
+        text-decoration: none;
         cursor: pointer;
         width: 100%;
         color: #fff;
         padding: 8px 12px;
         border-radius: 12px;
+
         &:hover {
-          text-decoration: underline;
+          font-weight: 800;
+          font-size: large;
           scale: 1.01;
-          transition: 1s;
+          transition: .35s;
         }
       }
     }
@@ -66,6 +73,7 @@
 }
 
 .dashboard {
+
   .cards {
     display: flex;
     gap: 20px;
@@ -73,7 +81,6 @@
 
     .card {
       flex: 1;
-      background-color: #fff;
       padding: 20px;
       text-align: center;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -82,20 +89,74 @@
   }
 
   .section {
-    background-color: #fff;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 
+    .svg{
+      width: 2vh;
+    }
+
     .placeholder {
-      background-color: #eee;
-      height: 200px;
+      height: 400px;
       display: flex;
       align-items: center;
-      justify-content: center;
       flex-direction: column;
       color: #888;
+      gap: .5vh;
+      flex-wrap: wrap;
+      align-content: start;
+      justify-content: flex-start;
+      margin-top: 5%;
+      margin-bottom: -5%;
+
+      .card-left {
+        border: #333 2px solid;
+        border-radius: 1vh;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 5px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        padding: 16px;
+        margin: .5vh;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        width: 44.3vh;
+
+
+      }
+    }
+  }
+
+  .Paciente {
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    .placeholder {
+      height: 300px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      color: #888;
+      gap: .5vh;
+      flex-wrap: wrap;
+      align-content: start;
+      justify-content: flex-start;
+      margin-top: 5%;
+      margin-bottom: -5%;
+
+      .card-left {
+        border: #333 2px solid;
+        border-radius: 1vh;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 5px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        padding: 16px;
+        margin: .5vh;
+        display: flex;
+        flex-direction: row;  
+        width: 30vh;
+
+
+      }
     }
   }
 }
