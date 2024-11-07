@@ -21,7 +21,7 @@ export default function FormAgendamento(props){
     async function salvar(){
         if(idPaciente != undefined || idPaciente != null)
             if(!props.alterar)
-                await axios.post(url+"?x-access-token="+token, {data: data.split("T")[0], hora, status, tratamento, paciente: idPaciente})
+                await axios.post(url+"?x-access-token="+token, {data: data?.split("T")[0], hora, status, tratamento, paciente: idPaciente})
                 .then(res => props.close())
                 .catch(err => setErro(err.response.data.erro))
             else
