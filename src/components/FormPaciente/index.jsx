@@ -21,6 +21,7 @@ export default function FormPaciente(props){
             .then(res => props.close())
             .catch(err => setErro(err.response.data.erro))
     }
+
     function cancelar(){
         props.cancel()
     }
@@ -32,7 +33,7 @@ export default function FormPaciente(props){
                         <img className="limg" alt="logo" src="/assets/images/logo.svg" />
                     <br />
                 </div>
-                <div>
+              <div>
                 <label className='titulo-campo'>Nome:</label> <input type="text" value={nome} placeholder="Nome" onChange={e => setNome(e.target.value)}/>
               </div>
               <div>
