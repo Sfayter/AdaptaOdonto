@@ -11,9 +11,9 @@ export default function AdminPaciente() {
   const [erro, setErro] = useState('');
   const [formPaciente, setFormPaciente] = useState(false)
   const [altFormPaciente, setAltFormPaciente] = useState(false)
+  const [pacienteAlterado, setPacienteAlterado] = useState('')
   const url = process.env.REACT_APP_API_URL+"/paciente"
   const token = localStorage.getItem('token')
-  const [pacienteAlterado, setPacienteAlterado] = useState('')
 
   useEffect(() => {
     buscarPacientes()
@@ -82,7 +82,11 @@ export default function AdminPaciente() {
         setFormPaciente(false)
         buscarPacientes()
       }}/>}
-      {altFormPaciente && <FormPaciente alterar={true} paciente={pacienteAlterado} cancel={() => setAltFormPaciente(false)} close={() => {
+      {altFormPaciente && <FormPaciente alterar={true} paciente={pacienteAlterado} cancel={() => {
+        setAltFormPaciente(false)
+        setPacienteAlterado({})
+      }} close={() => {
+        setPacienteAlterado({})
         setAltFormPaciente(false)
         buscarPacientes()
       }}/>}

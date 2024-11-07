@@ -3,16 +3,20 @@ import './style.scss';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import FormAgendamento from '../../components/FormAgendamento';
 export default function ListaAgendamentos() {
   const [paciente, setPacientes] = useState([]);
   const [agendamentosAll, setAgendamentosAll] = useState([]);
   const [agendamentos, setAgendamentos] = useState([]);
   const [openPopup, setOpenPopup] = useState(false);
   const [isNewAgendamento, setIsNewAgendamento] = useState(true);
-  const [agendamentoEdit, setAgendamentoEdit] = useState(null);
+  const [agendamentoEdit, setAgendamentoEdit] = useState(false);
   const [buscaRgOuNome, setBuscaRgOuNome] = useState('')
   const [buscaData, setData] = useState('')
   const [erro, setErro] = useState('')
+  const [formAgend, setFormAgend] = useState(false)
+  const [altFormAgend, setAltFormAgend] = useState(false)
+  const [agendAlterado, setAgendAlterado] = useState('')
 
   const token = localStorage.getItem('token')
   const url = process.env.REACT_APP_API_URL+"/agendamento"
@@ -58,6 +62,7 @@ export default function ListaAgendamentos() {
 
     filtro()
   }, [buscaData, buscaRgOuNome]);
+
   async function buscarAgendamentos(){
     axios.get(url+"?x-access-token="+token)
       .then(res => {
@@ -66,6 +71,7 @@ export default function ListaAgendamentos() {
       })
       .catch(err => setErro(err.response.data.erro))
   }
+
   async function buscarPacientes(){
     axios.get(urlP+"?x-access-token="+token)
     .then(res => {
@@ -73,17 +79,7 @@ export default function ListaAgendamentos() {
     })
     .catch(err => setErro(err.response.data.erro))
   }
-  const handleEditClick = (agendamento) => {
-    setAgendamentoEdit(agendamento);
-    setIsNewAgendamento(false);
-    setOpenPopup(true);
-  };
 
-  const handleNewClick = () => {
-    setAgendamentoEdit(null);
-    setIsNewAgendamento(true);
-    setOpenPopup(true);
-  };
 
 
   async function apagarAgendamento(id){
@@ -105,7 +101,7 @@ export default function ListaAgendamentos() {
 
           <input type="date" value={buscaData} onChange={e => setData(e.target.value)}/>
 
-          <button className='button-novo' onClick={handleNewClick}>+ Novo</button>
+          <button className='button-novo' onClick={() => setFormAgend(true)}>+ Novo</button>
         </div>
 
         <div className="appointments-container">
@@ -135,7 +131,11 @@ export default function ListaAgendamentos() {
                     </div>
                   </div>
                   <div className="card-right">
-                    <button className="edit-btn" onClick={() => handleEditClick(agendamento)}>Editar</button>
+                    <button className="edit-btn" onClick={() => {
+                        setAgendAlterado(agendamento)
+                        setAltFormAgend(true)
+                        setFormAgend(true)
+                      }}>Editar</button>
                     <button className="delete-btn" onClick={() => apagarAgendamento(agendamento.id)}>Apagar</button>
                   </div>
                 </div>
@@ -145,44 +145,19 @@ export default function ListaAgendamentos() {
         </div>
         {/*-----------------------------------------POPUP---------------------------------------------------------------*/}
 
-        {openPopup && (
-          <div className='page-agendamento'>
-            <div className='form'>
-              <div className="logo">
-                <h3>{isNewAgendamento ? 'Novo Agendamento' : 'Alterar Agendamento'}</h3>
-                <img className="limg" alt="logo" src="/assets/images/logo.svg" />
-                <br />
-              </div>
-              <div>
-                <h1 className='titulo-campo'>ㅤㅤRGㅤ:ㅤ</h1> <input type="text" placeholder="RG do Paciente" defaultValue={agendamentoEdit?.rg || ''} />
-              </div>
-              <div>
-                <h1 className='titulo-campo'>ㅤㅤData :ㅤ </h1> <input type='text' placeholder="Data da Consulta" defaultValue={agendamentoEdit?.data || ''} />
-              </div>
-              <div>
-                <h1 className='titulo-campo'>ㅤㅤHora :ㅤ </h1><input type="text" placeholder="Hora da Consulta" defaultValue={agendamentoEdit?.horario || ''} />
-              </div>
-              <div>
-                <h1 className='titulo-campo'>ㅤㅤ  Status : </h1>
-                <select defaultValue={agendamentoEdit?.status || 'Confirmado'}>
-                  <option value="Agendado">Agendado</option>
-                  <option value="Confirmado">Confirmado</option>
-                  <option value="Cancelado">Cancelado</option>
-                  <option value="Concluído">Concluído</option>
-                </select>
-              </div>
-              <div>
-                <h1 className='titulo-area'>Tratamento :</h1> <textarea placeholder="Tratamento" defaultValue={agendamentoEdit?.tratamento || ''} />
-              </div>
-              <div className='div-alterar'>
-                <button className="agendar" onClick={salvar}>
-                  {isNewAgendamento ? 'Salvar' : 'Alterar'}
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
+        {formAgend && 
+          <FormAgendamento agendamento={agendAlterado} alterar={altFormAgend} cancel={() => {
+            setFormAgend(false)
+            setAltFormAgend(false)
+            setAgendAlterado({})
+          }} close={() => {
+            setFormAgend(false)
+            buscarAgendamentos()
+            setAltFormAgend(false)
+            setAgendAlterado({})
+          }}/>
+      }
       {erro.length > 0?
                 <Erro close={() => setErro('')} mensagem={erro}/>
                 :''
