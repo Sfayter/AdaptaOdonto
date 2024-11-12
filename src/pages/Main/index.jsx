@@ -38,7 +38,7 @@ const Dashboard = (props) => {
       .catch(err => props.erro(err.response.data.erro))
   }
   async function buscarAgendamentos() {
-    axios.get(urlA + "?x-access-token=" + token)
+    axios.get(urlA + "/hoje?x-access-token=" + token)
       .then(res => {
         setAgendamentos(res.data)
       })
@@ -48,7 +48,7 @@ const Dashboard = (props) => {
     <div className="dashboard">
       <div className='Agendamento'>
         <div className="section">
-          <h2>Agendamentos</h2>
+          <h2>Agendamentos de Hoje</h2>
           <div className="placeholder">
             {agendamentos.map(a => {
               return (
