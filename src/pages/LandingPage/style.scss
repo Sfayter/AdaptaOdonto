@@ -4,28 +4,109 @@
 
 .landing-page {
 
-
     .topo {
         background-image: url('../../../public/assets/images/consultorio.png');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
 
-        > div {
+        /*popup */
+        .popup {
+            position: absolute;
+            top: 70px;
+            left: 64%;
+            width: 35%;
+            height: 55rem;
+            max-height: 75rem;
+            display: flex;
+            background-color: #111111cc;
+            box-shadow: #111;
+            border-radius: 20px;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .popup-content {
+            border-radius: 8px;
+            padding: 20px;
+            width: 400px;
+            gap: 10px;
+
+            .close {
+                position: absolute;
+                top: 10px;
+                right: 30px;
+                font-size: 24px;
+                cursor: pointer;
+                color: white;
+            }
+
+            h3 {
+                text-align: center;
+                color: #ffffff;
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
+
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+                color: #ffffff;
+            }
+
+            select,
+            input,
+            textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+
+            select {
+                background-color: #fff;
+            }
+
+            textarea {
+                height: 20vh ;
+            }
+
+            p{
+                padding-top: 0px;
+            }
+
+            button.sendButton {
+                width: 100%;
+                padding: 12px;
+                background-color: #25d366;
+                color: white;
+                font-size: 18px;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #128c7e;
+                }
+            }
+        }
+
+        >div {
             width: 100%;
             height: 100%;
             display: flex;
             background-color: #0009;
 
-            > div {
+            >div {
                 width: 50%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                display: flex;
-                justify-content: center;
-                align-items: center;
                 gap: 32px;
 
                 h1 {
@@ -54,7 +135,7 @@
                     cursor: pointer;
                     color: white;
 
-                    >a{
+                    >a {
                         text-decoration: none;
                         color: #fff;
                     }
@@ -72,7 +153,6 @@
         }
     }
 
-
     .servicos {
         border-radius: 30px;
         width: 95%;
@@ -81,9 +161,6 @@
         box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.200);
         margin-bottom: 12vh;
     }
-
-
-
 
     .textos-servicos {
         margin: auto;
@@ -136,7 +213,7 @@
         float: right;
     }
 
-    .clinica{
+    .clinica {
         display: flex;
         border-radius: 30px;
         width: 95%;
@@ -145,7 +222,8 @@
         box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.200);
         margin-bottom: 12vh;
         background-color: #fff;
-        > div {
+
+        >div {
             padding: 0 5%;
             display: flex;
             flex-direction: column;
@@ -156,22 +234,24 @@
             color: #1D211F;
             width: 50%;
 
-            h1{
+            h1 {
                 font-weight: 400;
             }
-            p{
+
+            p {
                 line-height: 180%;
                 text-indent: 12px;
             }
-            > div{
+
+            >div {
                 padding: 18px 28px;
                 border-radius: 28px;
                 background-color: #1D211F;
                 color: #fff;
-
             }
         }
-        .fundo-predio{
+
+        .fundo-predio {
             background-image: url(../../../public/assets/images/fachada_predio.png);
             background-size: cover;
             border-radius: 30px;
@@ -179,8 +259,9 @@
             justify-content: flex-end;
             align-items: flex-start;
             padding: 30px 24px;
-           > div{
-            text-align: center;
+
+            >div {
+                text-align: center;
                 background-color: #fff;
                 color: #1D211F;
                 padding: 32px 20px;
@@ -189,7 +270,8 @@
             }
         }
     }
-    .agendamento{
+
+    .agendamento {
         text-align: center;
         border-radius: 30px;
         width: 95%;
@@ -199,33 +281,39 @@
         margin-bottom: 12vh;
         padding: 100px 30%;
         font-family: 'roboto', sans-serif;
-        h1{
+
+        h1 {
             color: #111;
             font-weight: 400;
         }
-        p{
+
+        p {
             color: #1D211F;
             text-align: left;
             line-height: 180%;
         }
     }
-    .tratamentos{
+
+    .tratamentos {
         display: grid;
         gap: 60px;
         padding: 40px 160px;
         width: 95%;
         margin: 0 auto;
         margin-bottom: 12vh;
-        > div{
+
+        >div {
             grid-row: 1;
-            img{
+
+            img {
                 width: 100%;
                 padding: 16px;
                 background-color: var(--landing-page-cyan);
                 border-radius: 32px;
                 box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.180);
             }
-            p{
+
+            p {
                 margin-top: -30px;
                 font-family: 'roboto', sans-serif;
                 color: #1D211F;
@@ -234,6 +322,7 @@
             }
         }
     }
+
     .checkup {
         background-color: var(--landing-page-cyan);
         border-radius: 50px;
@@ -253,20 +342,21 @@
         align-content: center;
         justify-content: space-around;
         margin: 10rem;
-        font:24px 'Inter', sans-serif;
+        font: 24px 'Inter', sans-serif;
         color: #1D211F;
         font-weight: 200;
-        >h1{
+
+        >h1 {
             font-weight: 300;
         }
     }
 
-    .fundocheckup{
-        border-radius: 0px 50px 50px 0px ;
+    .fundocheckup {
+        border-radius: 0px 50px 50px 0px;
         width: 50%;
     }
 
-    .textocheckup p{
+    .textocheckup p {
         font-size: 22px;
         margin: -.5rem;
     }
@@ -297,30 +387,30 @@
         justify-content: space-around;
         align-items: center;
         padding: 50px;
-        font-family:"Didact Gothic", sans-serif;
+        font-family: "Didact Gothic", sans-serif;
         width: 100%;
-        > div{
+
+        >div {
             width: 33%;
             display: flex;
             align-items: center;
             flex-direction: column;
             font-family: 'roboto', sans-serif;
 
-            > h1{
+            >h1 {
                 font-size: 22px;
             }
-            > h2{
+
+            >h2 {
                 font-size: 17px;
             }
         }
     }
-    
 
-    .rodape img{
+    .rodape img {
         border-radius: 50px;
         width: 40px;
         height: 40px;
     }
-
 
 }
