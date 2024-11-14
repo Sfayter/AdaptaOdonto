@@ -55,7 +55,7 @@ const Dashboard = (props) => {
                 <div className='card-left'>
                   <div><img className='svg' src='https://img.icons8.com/?size=100&id=ZQrEWJ7fBM6M&format=png&color=000000'></img>   Paciente: {a.paciente != null ? pacientes.filter(p => p.id === a.paciente)[0]?.nome : 'Não Definido'}
                     <br></br>
-                    <img className='svg' src='https://img.icons8.com/?size=100&id=67337&format=png&color=000000'></img>    Data: {new Date(a.data).toLocaleDateString()}
+                    <img className='svg' src='https://img.icons8.com/?size=100&id=67337&format=png&color=000000'></img>    Data: {a.data.split('-')[2]?.split('T')[0]}/{a.data.split('-')[1]}/{a.data.split('-')[0]}
                     <br></br>
                     <img className='svg' src='https://img.icons8.com/?size=100&id=JNyY8t39Erji&format=png&color=000000'></img>   Hora: {a.hora}
                   </div>
