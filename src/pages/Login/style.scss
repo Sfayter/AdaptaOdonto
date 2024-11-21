@@ -5,8 +5,8 @@
     .login{
         margin-top: 100px;
         background-color: #F8F8F8;
-        height: 375px;
-        border-radius: 8px;
+        height: 55vh;
+        border-radius: 20px;
         box-shadow: 5px 6px 4px rgba(0,0,0,0.2);
     }
     
@@ -18,24 +18,27 @@
     }
     
     #email, #password{
+        width: 50%;
+        height: 3.5vh;
         border-radius: 6px;
-        padding: 5px 12px;
+        padding: 0.52vh 1.24vh;
         border-width: thin;
     }
     
     #email{
-        margin-top: 5px;
+        margin-top: 6vh;
     }
     
     //tamanho dos elementos
     .logo-odonto, .login{
-        width: 330px;
+        width: 25vw;
     }
     
     .bt-entrar{
         border-radius: 25px;
-        width: 80px;
-        padding: 4px;
+        margin-top: 0%;
+        width: 10vw;
+        padding: 2%;
         background-color: #00BBFF;
         color: #FFFFFF;
         border: none;
