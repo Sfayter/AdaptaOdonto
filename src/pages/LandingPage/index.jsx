@@ -86,7 +86,7 @@ export default function LandingPage() {
         Deseja o agendamento para o dia : ${encodeURIComponent(formattedDate)}.
         Tratamento a Realizar: ${encodeURIComponent(message)}`;
 
-        const phoneNumber = 'Numero';
+        const phoneNumber = '11934509980';
         const url = `https://wa.me/${phoneNumber}?text=${text}`;
 
         window.open(url, '_blank'); // Abrir WhatsApp
